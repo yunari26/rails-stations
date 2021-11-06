@@ -72,7 +72,7 @@ RSpec.describe Admin::ReservationsController, type: :controller do
     let!(:movie) { create(:movie) }
     let!(:sheets) { create_list(:sheet, 5) }
     let!(:schedule) { create(:schedule, movie_id: movie.id) }
-    let!(:reservation) { create(:reservation, { sheet_id: sheet.id, schedule_id: schedule.id }) }
+    let!(:reservation) { create(:reservation, { sheet_id: sheets.first.id, schedule_id: schedule.id }) }
 
     it 'schedule_id, sheet_id, name, emailのすべてがあるときだけ302にすること' do
       put "/admin/reservations/:id", params: { id: reservation.id, schedule_id: reservation.schedule_id, sheet_id: reservation.sheet_id, name: reservation.name, email: reservation.email }
@@ -84,7 +84,7 @@ RSpec.describe Admin::ReservationsController, type: :controller do
     let!(:movie) { create(:movie) }
     let!(:sheets) { create_list(:sheet, 5) }
     let!(:schedule) { create(:schedule, movie_id: movie.id) }
-    let!(:reservation) { create(:reservation, { sheet_id: sheet.id, schedule_id: schedule.id }) }
+    let!(:reservation) { create(:reservation, { sheet_id: sheets.first.id, schedule_id: schedule.id }) }
 
     it 'reservationテーブルから:idのレコードを物理削除していること' do
       expect do
