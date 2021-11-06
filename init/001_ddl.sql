@@ -1,3 +1,4 @@
+-- NOTE: migrationファイルで実行した方が良いかもしれない
 CREATE DATABASE IF NOT EXISTS `app_test`;
 CREATE DATABASE IF NOT EXISTS `app_development`;
 --  Docker buildで環境を全て揃えたいため、ここで必要なテーブルを作成
