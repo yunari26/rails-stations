@@ -1,9 +1,9 @@
 <div class="card-group">
   <% @movies.each do |movie| %>
     <div class="card m-5" style="width: 18rem;">
-      <%= image_tag( movie.image ) %>
+      <%= image_tag( movie.image_url ) %>
       <div class="card-body">
-        <h5 class="card-title"><%= movie.title %></h5>
+        <h5 class="card-title"><%= movie.name %></h5>
         <a href="#" class="btn btn-primary">予約/詳細</a>
       </div>
     </div>
