@@ -10,16 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_21_120612) do
+ActiveRecord::Schema.define(version: 2021_11_23_000201) do
 
   create_table "movies", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "image_url", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "year"
-    t.string "description"
-    t.boolean "is_showing"
+    t.integer "year", null: false
+    t.string "description", null: false
+    t.boolean "is_showing", default: false, null: false
+    t.index ["name"], name: "index_movies_on_name", unique: true
   end
 
 end
