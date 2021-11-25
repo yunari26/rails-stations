@@ -18,8 +18,22 @@ class Admin::MoviesController < ApplicationController
     end
   end
 
+  def edit
+    @movie = Movie.find_by(id: params[:id])
+  end
+
+  def update
+    @movie = Movie.find_by(id: params[:id])
+    if @movie.update(movie_params)
+      redirect_to admin_movies_path
+    else
+      flash[:alert] = "エラーが発生しました"
+      render :edit
+    end
+  end
+
   private
   def movie_params
-    params.require(:movie).permit(:id, :name, :year, :description, :image_url, :is_showing, :created_at, :updated_at)
+    params.require(:movie).permit(:name, :year, :description, :image_url, :is_showing)
   end
 end
